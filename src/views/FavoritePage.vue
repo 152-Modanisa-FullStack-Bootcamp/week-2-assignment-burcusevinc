@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Header class="header"></Header>
     <FavoriteVideos
       v-for="video in favoritedVideos"
       :key="video.id"
@@ -10,12 +11,14 @@
 
 <script>
 import FavoriteVideos from "@/components/FavoriteVideos";
+import Header from "@/components/Header";
 
 export default {
   name: "FavoritePage",
   props: ["allVideosProps"],
   components: {
     FavoriteVideos,
+    Header
   },
   computed: {
     favoritedVideos() {
@@ -25,6 +28,9 @@ export default {
 };
 </script>
 
-
 <style scoped>
+.header{
+  width: 1530px;
+  
+}
 </style>
