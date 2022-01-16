@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view :allVideosProps="allVideos"></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import axios from 'axios'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data(){
+    return {
+      allVideos: []
+    }
+  },
+  async mounted(){
+    const response = await axios.get("https://my-json-server.typicode.com/modanisa/bootcamp-video-db/videos");
+    //console.log(response)
+    this.allVideos = response.data;
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,body {
+  height: 100%;
+  width:100%;
+}
+
+#app{
+  display: flex;
+  justify-content: center;
 }
 </style>
