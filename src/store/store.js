@@ -1,19 +1,32 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
+const URL = "https://my-json-server.typicode.com/modanisa/bootcamp-video-db/videos"
 
-  },
-  mutations: {
-
+const store = new Vuex.Store({
+  state: { //data
+    allVideos: [],
   },
   actions: {
-
+     fetchVideos({ commit }) {
+        axios.get(URL).then(response=>{
+        commit('setVideos', response.data)
+      })
+    }
   },
-  getters: {
-
-  }
+  mutations: {
+    setVideos(state,payload){
+      state.allVideos = payload;
+    }
+  },
+  getters: { 
+    favoritedVideos(state) {
+      return state.allVideos.filter((video) => video.favorite === true);
+    },
+  },
 })
+
+export default store;

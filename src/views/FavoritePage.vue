@@ -10,20 +10,24 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import FavoriteVideos from "@/components/FavoriteVideos";
 import Header from "@/components/Header";
 
 export default {
   name: "FavoritePage",
-  props: ["allVideosProps"],
   components: {
     FavoriteVideos,
     Header
   },
   computed: {
-    favoritedVideos() {
-      return this.allVideosProps.filter((video) => video.favorite === true);
-    },
+    /*favoritedVideos() {
+      return this.$store.state.allVideos.filter((video) => video.favorite === true);
+    },*/
+    ...mapGetters(["favoritedVideos"]),
+  },
+  created() {
+    this.$store.dispatch("fetchVideos");
   },
 };
 </script>

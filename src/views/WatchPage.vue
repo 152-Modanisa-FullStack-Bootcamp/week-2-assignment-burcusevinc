@@ -7,7 +7,7 @@
 <script>
 export default {
   name: "WatchPage",
-  props: ["allVideosProps"],
+  //props: ["allVideosProps"],
 };
 </script>
 

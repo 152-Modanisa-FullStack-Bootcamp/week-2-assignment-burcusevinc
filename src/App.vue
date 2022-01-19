@@ -1,23 +1,12 @@
 <template>
   <div id="app">
-    <router-view :allVideosProps="allVideos"></router-view>
+    <router-view ></router-view>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 export default {
   name: 'App',
-  data(){
-    return {
-      allVideos: []
-    }
-  },
-  async mounted(){
-    const response = await axios.get("https://my-json-server.typicode.com/modanisa/bootcamp-video-db/videos");
-    //console.log(response)
-    this.allVideos = response.data;
-  }
 }
 </script>
 
