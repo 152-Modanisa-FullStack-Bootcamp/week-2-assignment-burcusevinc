@@ -1,4 +1,7 @@
-# Bootcamp Week 2 Assignment
+# Bootcamp Week 2 Assignment - Vuex 
+This project refactoring using by Vuex.
+
+The store.js file has been created and import the project.
 
 There are 3 pages you need to design: main, favorite and watch page respectively. You need to use router for displaying the pages. When user clicks to the favorite button, you should
 use "bootcamp" as param.
@@ -29,7 +32,6 @@ Do not make a responsive design.
 ## Favorite page
 
 For the favorite page, You need to design a page as seen in the picture below.
-
 Favorite page should list the videos whose favorite field are set to true in the data.
 
 ![HomePage](./pictures/favorites-page.png)
